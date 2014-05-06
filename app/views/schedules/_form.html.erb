@@ -1,0 +1,18 @@
+<%= simple_form_for(@schedule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :mon %>
+    <%= f.input :tues %>
+    <%= f.input :wed %>
+    <%= f.input :thur %>
+    <%= f.input :fri %>
+    <%= f.input :sat %>
+    <%= f.input :sun %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

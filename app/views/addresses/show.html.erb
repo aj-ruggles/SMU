@@ -1,0 +1,28 @@
+
+<p>
+  <strong>User:</strong>
+  <%= @address.user_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @address.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @address.city %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @address.street %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @address.zip %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

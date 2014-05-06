@@ -3,6 +3,19 @@ SMU::Application.routes.draw do
 
 
 
+  get "group_schedule/index"
+  get "group_schedule/new"
+  get "group_schedule/edit"
+  get "group_schedule/create"
+  get "group_schedule/update"
+  resources :addresses
+
+  resources :organizations
+
+  resources :schedules
+
+  resources :groups
+
   devise_for :users
   scope :admin do
     resources :users
