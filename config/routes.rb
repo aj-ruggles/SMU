@@ -1,4 +1,23 @@
 SMU::Application.routes.draw do
+
+
+
+
+  devise_for :users
+  scope :admin do
+    resources :users
+  end
+
+  get "/about_us" => "home#about"
+  get "/contact_us" => "home#contact"
+  get "/help" => "home#help"
+
+  authenticated do
+    root :to => "users#index", :as => "signed_in_root"
+  end
+  unauthenticated do
+    root :to => "home#index"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
