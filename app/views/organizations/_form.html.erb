@@ -1,11 +1,19 @@
-<%= simple_form_for(@organization) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@organization) do |f| %>
+    <% if @organization.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@organization.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+          <ul>
+            <% @organization.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <form class="form-inline" role="form">
+      <div class="form-group" style="display: inline-flex">
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+      </div>
+      <button name="commit" type="submit" class="btn btn-primary">Create</button>
+    </form>
 <% end %>

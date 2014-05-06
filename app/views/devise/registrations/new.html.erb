@@ -6,6 +6,10 @@
           <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, placeholder: 'example@email.com', class: 'form-control' %></br>
+            <%= f.label :first_name %>
+            <%= f.text_field :firstname, autocomplete: "off", placeholder: 'First Name', class: 'form-control' %>
+            <%= f.label :last_name %>
+            <%= f.text_field :lastname, autocomplete: "off", placeholder: 'Last Name', class: 'form-control' %>
             <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "off", placeholder: 'password', class: 'form-control' %>
             <%= f.label :password_confirmation %>

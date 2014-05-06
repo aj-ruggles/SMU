@@ -1,18 +1,27 @@
-<%= simple_form_for(@schedule) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@schedule) do |f| %>
+    <% if @schedule.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :user_id %>
-    <%= f.input :mon %>
-    <%= f.input :tues %>
-    <%= f.input :wed %>
-    <%= f.input :thur %>
-    <%= f.input :fri %>
-    <%= f.input :sat %>
-    <%= f.input :sun %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+          <ul>
+            <% @schedule.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <form class="form-inline" role="form">
+        <div class="form-group" style="display: inline-flex">
+          <%= f.hidden_field :user_id, class: 'form-control', label: 'user' %>
+          <%= f.text_field :sun, class: 'form-control', placeholder: 'Sun' %>
+          <%= f.text_field :mon, class: 'form-control', placeholder: 'Mon' %>
+          <%= f.text_field :tues, class: 'form-control', placeholder: 'Tu' %>
+          <%= f.text_field :wed, class: 'form-control', placeholder: 'We' %>
+          <%= f.text_field :thur, class: 'form-control', placeholder: 'Thu' %>
+          <%= f.text_field :fri, class: 'form-control', placeholder: 'Fri' %>
+          <%= f.text_field :sat, class: 'form-control', placeholder: 'Sat' %>
+        </div>
+      <button name="commit" type="submit" class="btn btn-primary">Create</button>
+    </form>
 <% end %>
+

@@ -1,6 +1,6 @@
 <h1>Listing schedules</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>User</th>
@@ -28,9 +28,9 @@
         <td><%= schedule.fri %></td>
         <td><%= schedule.sat %></td>
         <td><%= schedule.sun %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to schedule do %> <span class="glyphicon glyphicon-eye-open"></span> <% end %> </td>
+        <td><%= link_to edit_schedule_path(schedule) do %><span class="glyphicon glyphicon-pencil"></span> <% end %></td>
+        <td><%= link_to schedule, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove"></span> <% end %></td>
       </tr>
     <% end %>
   </tbody>

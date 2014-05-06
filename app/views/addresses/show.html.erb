@@ -1,7 +1,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @address.user_id %>
+  <%= User.where(id: @address.user_id) %>
 </p>
 
 <p>
