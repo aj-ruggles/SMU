@@ -1,0 +1,19 @@
+<h1>GroupSchedule#new</h1>
+<p>Find me in app/views/group_schedule/new.html.erb</p>
+
+
+<% @users.each do |s| %>
+    <%= s.schedule %></br>
+    <%= s.email %></br>
+<% end %>
+
+<% @schedules.each do |s| %>
+  <%= s.user.email %>
+<% end %>
+
+<%= render partial: 'group_schedules/form' %>
+
+
+
+
+

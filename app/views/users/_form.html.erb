@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-    <form role="form">
+    <form class="form-horizontal" role="form">
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, placeholder: 'example@email.com', class: 'form-control' %></br>
@@ -28,13 +28,7 @@
         <%= f.label :organization_id %>
         <%= f.number_field :organization_id, autocomplete: "off", placeholder: 'Organization #', class: 'form-control' %></br>
         <%= f.label :role %>
-        <select class="form-control" id="user_role" name="user[role]" default="true">
-          <option value="sysadmin">Sysadmin</option>
-          <option value="admin">Admin</option>
-          <option value="manager">Manager</option>
-          <option value="employee">Employee</option>
-        </select>
-
+        <%= f.select( :role, User::ROLES, {include_blank: 'None'}, class: 'form-control' ) %>
       </div>
       <button name="commit" type="submit" class="btn btn-primary"><%= action_name %> user</button>
     </form>

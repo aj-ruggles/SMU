@@ -1,8 +1,31 @@
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="type-default"><%= @organization.name %></h1>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
+  <div class="row">
+    <div class="col-lg-1">
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Messages</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">My Groups</div>
+        <div class="panel-body">
+          <% if @groups %>
+              <%= render partial: 'groups/groups' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+

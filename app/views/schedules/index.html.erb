@@ -20,7 +20,7 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= schedule.user_id %></td>
+        <td><%= "#{schedule.user.lastname}, #{schedule.user.firstname}" %></td>
         <td><%= schedule.mon %></td>
         <td><%= schedule.tues %></td>
         <td><%= schedule.wed %></td>

@@ -3,11 +3,13 @@ SMU::Application.routes.draw do
 
 
 
-  get "group_schedule/index"
-  get "group_schedule/new"
-  get "group_schedule/edit"
-  get "group_schedule/create"
-  get "group_schedule/update"
+  get "dashboard/index"
+  get "group_schedules/index"
+  get "group_schedules/new/:id", :controller => "group_schedules", :action => "new", as: "group_schedule_new"
+  get "group_schedules/edit"
+  get "group_schedules/create"
+  patch "group_schedules/update"
+
   resources :addresses
 
   resources :organizations
@@ -26,7 +28,7 @@ SMU::Application.routes.draw do
   get "/help" => "home#help"
 
   authenticated do
-    root :to => "users#index", :as => "signed_in_root"
+    root :to => "dashboard#index", :as => "signed_in_root"
   end
   unauthenticated do
     root :to => "home#index"
