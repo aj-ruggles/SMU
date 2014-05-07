@@ -1,0 +1,39 @@
+<%= form_for @schedules, :url => { :action => "update" } do %>
+  <form class="form-inline" role="form">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tues</th>
+        <th>Wed</th>
+        <th>Thur</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      </thead>
+      <tbody>
+    <% for schedule in @schedules %>
+      <%= fields_for "schedules[]", schedule do |f| %>
+        <tr>
+        <div class="form-group" style="display: inline-flex">
+          <td><%= schedule.user.firstname %></td>
+          <td><%= f.text_field :sun, class: 'form-control', placeholder: 'Sun'%></td>
+          <td><%= f.text_field :mon, class: 'form-control', placeholder: 'Mon' %></td>
+          <td><%= f.text_field :tues, class: 'form-control', placeholder: 'Tu' %></td>
+          <td><%= f.text_field :wed, class: 'form-control', placeholder: 'We' %></td>
+          <td><%= f.text_field :thur, class: 'form-control', placeholder: 'Thu' %></td>
+          <td><%= f.text_field :fri, class: 'form-control', placeholder: 'Fri' %></td>
+          <td><%= f.text_field :sat, class: 'form-control', placeholder: 'Sat' %></td>
+        </div>
+        </tr>
+      <% end %>
+      <% end %>
+      </tbody>
+    </table>
+    <button name="commit" type="submit" class="btn btn-primary">Create</button>
+  </form>
+<% end %>
+
+
