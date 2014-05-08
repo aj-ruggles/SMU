@@ -1,30 +1,6 @@
 <h1>Listing users</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Organization</th>
-      <th>Group</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.organization.name unless user.organization.nil? %></td>
-        <td><%= user.group.name unless user.group.nil? %></td>
-        <td><%= link_to user do %> <span class="glyphicon glyphicon-eye-open"></span> <% end %> </td>
-        <td><%= link_to edit_user_path(user) do %><span class="glyphicon glyphicon-pencil"></span> <% end %></td>
-        <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove"></span> <% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'users/users' %>
 
 <br>
 

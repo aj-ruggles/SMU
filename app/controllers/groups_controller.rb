@@ -14,7 +14,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    @group = Group.new(:organization_id => params[:organization_id])
+    @users = User.where(:group_id => @group.id)
+
   end
 
   # GET /groups/1/edit
@@ -69,6 +71,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:organization_id, :name)
+      params.require(:group).permit(:organization_id, :name, :organization)
     end
 end

@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def new_schedule
-    schedule = Schedule.new do |s|
+    Schedule.new do |s|
       s.user_id = self.id
       s.mon = schedules.last
       s.tues = schedules.last
@@ -40,7 +40,8 @@ class User < ActiveRecord::Base
       s.fri = schedules.last
       s.sat = schedules.last
       s.sun = schedules.last
-      (schedules.last.to_param)
     end
   end
+
+
 end

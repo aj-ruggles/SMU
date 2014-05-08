@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @groups = Group.where(:organization_id => @organization.id)
+    @users = User.where(:organization_id => @organization.id)
   end
 
   # GET /organizations/new

@@ -1,13 +1,26 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="type-default"><%= @group.name %></h1>
+        <ul class="nav nav-pills">
+          <li class="active"><%= link_to '+ User', new_user_path(:group_id => @group.id)%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @group.organization_id %>
-</p>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Employees</div>
+        <div class="panel-body">
+          <% if @users %>
+              <%= render partial: 'users/users' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>

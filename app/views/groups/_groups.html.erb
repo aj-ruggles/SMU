@@ -2,7 +2,7 @@
   <thead>
   <tr>
     <th>Group Name</th>
-    <th></th>
+    <th>Manager</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,6 +12,7 @@
   <% @groups.each do |group| %>
       <tr>
         <td><%= group.name %></td>
+        <td><%= group.user.lastname unless group.user.nil? %></td>
         <td><%= link_to group do %> <span class="glyphicon glyphicon-eye-open"></span> <% end %> </td>
         <td><%= link_to edit_group_path(group) do %><span class="glyphicon glyphicon-pencil"></span> <% end %></td>
         <td><%= link_to group, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove"></span> <% end %></td>

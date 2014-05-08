@@ -1,26 +1,32 @@
-<div class="bs-docs-section">
+<div class="jumbotron">
   <div class="row">
     <div class="col-lg-12">
       <div class="page-header">
         <h1 id="type-default"><%= @organization.name %></h1>
+        <ul class="nav nav-pills">
+          <li class="active"><%= link_to '+ Group', new_group_path(:organization_id => @organization.id)%></li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-1">
-      <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
-      </ul>
-    </div>
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">My Groups</div>
         <div class="panel-body">
           <% if @groups %>
-              <%= render partial: 'groups/groups' %>
+              <%= render partial: "groups/groups" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">My Employees</div>
+        <div class="panel-body">
+          <% if @users %>
+              <%= render partial: 'users/users' %>
           <% end %>
         </div>
       </div>

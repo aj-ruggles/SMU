@@ -12,7 +12,7 @@
     <% end %>
     <form class="form-inline" role="form">
       <div class="form-group" style="display: inline-flex">
-        <%= f.text_field :organization_id, class: 'form-control', placeholder: 'Organization #' %>
+        <%= f.hidden_field :organization_id, class: 'form-control', placeholder: 'Organization #' %>
         <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
       </div>
       <button name="commit" type="submit" class="btn btn-primary">Create</button>

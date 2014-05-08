@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>User</th>
+      <th>Manager</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +15,7 @@
     <% @organizations.each do |organization| %>
       <tr>
         <td><%= organization.name %></td>
-        <td><%= organization.user.email %></td>
+        <td><%= organization.user.lastname unless organization.user.nil? %></td>
         <td><%= link_to organization do %> <span class="glyphicon glyphicon-eye-open"></span> <% end %> </td>
         <td><%= link_to edit_organization_path(organization) do %><span class="glyphicon glyphicon-pencil"></span> <% end %></td>
         <td><%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove"></span> <% end %></td>
